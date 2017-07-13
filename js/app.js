@@ -5,21 +5,58 @@ var ViewModel = function() {
 	this.imgSrc = ko.observable('img/22252709_010df3379e_z.jpg');
 	this.imgAttribution = ko.observable('https://www.test.com');
 
-	this.nickNames = ko.observableArray([
-								    { name: "Mini"},
-								    { name: "Rambo"},
-								    { name: "Rocky"}
-								]);
+	// this.nickNames = ko.observableArray([
+	// 							    { name: "Mini"},
+	// 							    { name: "Rambo"},
+	// 							    { name: "Rocky"}
+	// 							]);
 
+	this.nickNames = ko.observableArray(['Mini','Rambo','Rocky']);
+
+	this.level = ko.computed(function() {
+        var clicks = this.clickCount();
+		var title;
+		if(clicks < 10){
+			// this.level('Adult');
+			title = 'Newborn';
+		}else if(clicks < 20){
+			title = 'Infant';
+		}else if(clicks < 30){
+			title = 'Child';
+		}else if(clicks < 35){
+			title = 'Teen';
+		}else if(clicks < 40){
+			title = 'Teen';
+		}else if(clicks < 50){
+			title = 'Adult';
+		}else{
+			title = 'Ninja';
+		}
+		return title;
+    }, this);
+								    
 	this.incrementCounter = function() {
 		this.clickCount(this.clickCount() + 1);
-		if(this.clickCount() >= 20){
-			// console.log("Adult");
-			this.level('Adult');
-		}else if(this.clickCount() >= 10){
-			// console.log("Teen");
-			this.level('Teen');
-		}
+		// var clicks = this.clickCount();
+		// var title;
+		// if(clicks < 10){
+		// 	// this.level('Adult');
+		// 	title = 'Newborn';
+		// }else if(clicks < 20){
+		// 	title = 'Infant';
+		// }else if(clicks < 30){
+		// 	title = 'Child';
+		// }else if(clicks < 35){
+		// 	title = 'Teen';
+		// }else if(clicks < 40){
+		// 	title = 'Teen';
+		// }else {
+		// 	title = 'Ninja';
+		// }
+		// console.log(title +" aaa " + clicks);
+		// // this.level = title;
+		// this.level(title);
+
 	};
 }
 
