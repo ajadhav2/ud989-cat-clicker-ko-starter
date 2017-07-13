@@ -9,7 +9,11 @@
     <div>
     <!-- data-bind="click: function(data, event) { myClickHandler($index, data, event); }" -->
         <ul data-bind="foreach: catList">
-            <li data-bind="click: $parent.newCurrentCat.bind(), text: name">  </li>
+
+            <!-- Old with event handler -->
+            <!-- <li data-bind="click: $parent.newCurrentCat.bind(), text: name">  </li> -->
+
+            <li data-bind="click: $parent.newCurrentCat, text: name">  </li>
             <!-- <li data-bind="click: function(data, event) { newCurrentCat($index, data, event);}, text: name">  </li> -->
         </ul>
 

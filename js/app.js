@@ -105,15 +105,22 @@ var ViewModel = function() {
 	// this.newCurrentCat = function(index) {
 	// 	console.log(" index " + index);
 	// };
-	this.newCurrentCat= function (data, event) {
-        var context = ko.contextFor(event.target);
-        // do stuff with context.$index()
-        console.log(" index " + context.$index());
-        var index = context.$index();
 
-        // var rootC = context.$parent();
+	// Old with event handler
+	// this.newCurrentCat= function (data, event) {
+ //        var context = ko.contextFor(event.target);
+ //        // do stuff with context.$index()
+ //        console.log(" index " + context.$index());
+ //        var index = context.$index();
 
-        self.currentCat(self.catList()[index]);
+ //        // var rootC = context.$parent();
+
+ //        self.currentCat(self.catList()[index]);
+ //    }
+
+    this.newCurrentCat= function (clickedCat) {
+
+        self.currentCat(clickedCat);
     }
 };
 
