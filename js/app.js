@@ -1,4 +1,4 @@
-var ViewModel = function() {
+var Cat = function() {
 	this.clickCount = ko.observable(0);
 	this.name = ko.observable('Tabby');
 	this.level = ko.observable('Infant');
@@ -35,29 +35,15 @@ var ViewModel = function() {
 		return title;
     }, this);
 								    
-	this.incrementCounter = function() {
-		this.clickCount(this.clickCount() + 1);
-		// var clicks = this.clickCount();
-		// var title;
-		// if(clicks < 10){
-		// 	// this.level('Adult');
-		// 	title = 'Newborn';
-		// }else if(clicks < 20){
-		// 	title = 'Infant';
-		// }else if(clicks < 30){
-		// 	title = 'Child';
-		// }else if(clicks < 35){
-		// 	title = 'Teen';
-		// }else if(clicks < 40){
-		// 	title = 'Teen';
-		// }else {
-		// 	title = 'Ninja';
-		// }
-		// console.log(title +" aaa " + clicks);
-		// // this.level = title;
-		// this.level(title);
+};
 
+var ViewModel = function() {
+
+	this.currentCat = ko.observable( new Cat() );
+
+	this.incrementCounter = function() {
+		this.currentCat().clickCount(this.currentCat().clickCount() + 1);
 	};
-}
+};
 
 ko.applyBindings(new ViewModel());
