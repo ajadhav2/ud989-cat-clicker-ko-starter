@@ -101,6 +101,20 @@ var ViewModel = function() {
 
 		self.currentCat().clickCount(self.currentCat().clickCount() + 1); //when in currentcat context alternative
 	};
+
+	// this.newCurrentCat = function(index) {
+	// 	console.log(" index " + index);
+	// };
+	this.newCurrentCat= function (data, event) {
+        var context = ko.contextFor(event.target);
+        // do stuff with context.$index()
+        console.log(" index " + context.$index());
+        var index = context.$index();
+
+        // var rootC = context.$parent();
+
+        self.currentCat(self.catList()[index]);
+    }
 };
 
 ko.applyBindings(new ViewModel());
